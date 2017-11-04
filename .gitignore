@@ -1,0 +1,9 @@
+
+#Bloquear la Carpeta de configuracion del IDE PHPStorm
+.idea/*
+
+doc/bd/ModeloFGA.mwb
+doc/catalogopos.xlsx
+doc/tickets/*
+
+

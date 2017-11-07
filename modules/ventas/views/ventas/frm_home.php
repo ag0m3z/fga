@@ -118,13 +118,29 @@ $idEmpresa = $_SESSION['data_home']['iddepartamento'];
                 <i class="fa fa-money"></i> Movimientos Caja <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-                <li><a href="#"  onclick="getEntradas({'opc':5})">Apertura</a></li>
-                <li><a href="#"  onclick="fnVentaOpenModal({'opc':7})">Arqueo</a></li>
-                <li><a href="#"  onclick="fnVentaOpenModal({'opc':6})">Cierre</a></li>
-                <li><a href="#"  onclick="getEntradas(1)">Entradas</a></li>
-                <li><a href="#"  onclick="getEntradas(3)">Salidas</a></li>
-                <li><a href="#"  onclick="getAportaciones(1,1)">Aportaciones</a></li>
-                <li><a href="#"  onclick="getAportaciones(1,2)">Retiro</a></li>
+
+                <li class="dropdown-submenu">
+                    <a href="#" class="dropdown-toggle" style="box-shadow: none !important;color: #000 !important;background: #fff !important;border: none !important;border-radius: 0px !important;" data-toggle="dropdown">Apertura y Cierre</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="getEntradas({'opc':5})">Apertura</a></li>
+                        <li><a href="#" onclick="getEntradas({'opc':7})">Arqueo</a></li>
+                        <li><a href="#" onclick="fnVentaOpenModal({'opc':6})">Cierre</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a href="#" class="dropdown-toggle" style="box-shadow: none !important;color: #000 !important;background: #fff !important;border: none !important;border-radius: 0px !important;" data-toggle="dropdown">Entradas y Salidas</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="getEntradas(1)">Entrada</a></li>
+                        <li><a href="#" onclick="getEntradas(3)">Salidas</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a href="#" class="dropdown-toggle" style="box-shadow: none !important;color: #000 !important;background: #fff !important;border: none !important;border-radius: 0px !important;" data-toggle="dropdown">Aportaciones y Retiros</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="getAportaciones(1,1)">Aportaciones</a></li>
+                        <li><a href="#" onclick="getAportaciones(1,2)">Retiro</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
 

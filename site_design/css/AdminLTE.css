@@ -418,6 +418,8 @@ a:focus {
  */
 .main-sidebar,
 .left-side {
+		  box-shadow:7px 7px 9px #747474;
+
   position: absolute;
   top: 0;
   left: 0;

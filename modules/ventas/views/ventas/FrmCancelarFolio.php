@@ -74,7 +74,7 @@ unset($_SESSION['EXPORT']);
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                Cancelación de Nota
+                Cancelación de Nota<i class="fa fa-arrow-left"></i>
             </div>
             <div id="form_pagos" class="modal-body">
 

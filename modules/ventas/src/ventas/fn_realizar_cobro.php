@@ -160,6 +160,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                     '',
                     '$FechaActual'
                     )";
+
                     $connect->execute_query();
                 }
 
@@ -202,6 +203,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         '$CostoTrabajoCP',
                         '$Descripcion'
                         )";
+
                         $connect->execute_query();
                     }
 

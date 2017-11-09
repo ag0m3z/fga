@@ -26,6 +26,7 @@ if(
     !empty($_POST['importe_pago']) &&
     !empty($_POST['importe_total'])
 ){
+
     $FolioVenta = $_POST['folio_venta'];
     $ImportePendiente = $_POST['importe_pendiente'];
     $ImportePagado = $_POST['importe_pago'];
@@ -64,6 +65,7 @@ if(
     '0',
     '$FechaActual'
     )";
+
     $connect->get_result_query();
     $FolioPago = $connect->_rows[0][0];
 

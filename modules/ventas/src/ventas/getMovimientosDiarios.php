@@ -24,10 +24,22 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
 
         for($i=0;$i<count($connect->_rows);$i++){
 
-            if($connect->_rows[$i]['idestatus'] == "A"){
-                $Total += $connect->_rows[$i]['TotalPagado'];
-            }else{
-                $Total -= $connect->_rows[$i]['TotalPagado'];
+            switch ($connect->_rows[$i]['TipoOperacion']){
+                case 1:
+                    $Total = $Total + $connect->_rows[$i]['TotalPagado'];
+                    break;
+                case 2:
+                    $Total = $Total + $connect->_rows[$i]['TotalPagado'];
+                    break;
+                case 3:
+                    $Total = $Total + $connect->_rows[$i]['TotalPagado'];
+                    break;
+                case 4:
+                    $Total = $Total - $connect->_rows[$i]['TotalPagado'];
+                    break;
+                case 5:
+                    $Total = $Total - $connect->_rows[$i]['TotalPagado'];
+                    break;
             }
 
         }

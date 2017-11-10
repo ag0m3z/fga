@@ -19,7 +19,7 @@ header("ContentType:application/json");
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $Folio = $_POST['folio'];
-
+    $MensajeJson="";
     switch ($_POST['opc']){
         case 6: //Mostrar Lista de Pagos
 
@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             FROM 
               movimientos_caja 
             where 
-              idventa = $Folio 
+              idventa = $Folio and TipoOperacion <= 3
             ORDER BY FechaMovimiento desc
             ";
 
@@ -77,18 +77,33 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $NoUsuario = $_SESSION['data_login']['idusuario'];
             $idMovimiento = $_POST['pago'];
 
-            $connect->_query= "
-            UPDATE movimientos_caja SET idestatus ='C',idusuario_cancela=$NoUsuario,FechaCancelacion=now() WHERE idmovimiento = $idMovimiento
-            ";
+            $connect->_query = "select idmovimiento,idventa,NoPago,date(FechaMovimiento),TipoOperacion,TotalPagado from movimientos_caja WHERE idmovimiento = $idMovimiento";
+            $connect->get_result_query();
 
-            $connect->_query = "call sp_CancelarNotaVenta('1','$idMovimiento','$NoUsuario')";
+            if($connect->_rows[0][3] == date("Y-m-d") ){
+                $reAutorizacion = false;
+                $MensajeJson = "Consulta Exitosa";
+                $TipoOperacion = $connect->_rows[0][4];
+                $FolioVenta = $connect->_rows[0][1];
+                $NoPago = $connect->_rows[0][2];
+                $Importe = $connect->_rows[0][5];
 
-            $connect->execute_query();
+                $connect->_query = "call sp_CancelarNotaVenta('1','$FolioVenta','$NoPago','$Importe','$TipoOperacion','$idMovimiento','$NoUsuario')";
+                $connect->execute_query();
+
+
+            }else{
+                $reAutorizacion = true;
+                $MensajeJson = "No se cancelo el pago por que es de un dia anterior, se requiere autorizacion";
+            }
+
             echo json_encode(
                 array(
                     "result" =>true,
-                    "message" =>"consulta exitosa",
-                    "data" =>array()
+                    "message" =>$MensajeJson,
+                    "data" =>array(
+                        "rauto"=>$reAutorizacion
+                    )
                 )
             );
 

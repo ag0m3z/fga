@@ -446,6 +446,8 @@ function setVentaPagos(data){
                 dataType:"json",
             }).done(function (response) {
 
+                console.log(response);
+
                 if(response.result){
 
                     var tr="",idmovimiento;
@@ -528,13 +530,18 @@ function setVentaPagos(data){
                             dataType:"json",
                         }).done(function (response) {
 
-                            console.log();
+                            console.log(response);
 
                             if(response.result){
 
-                                var FolioVenta = $("#folio_venta").val();
+                                if(response.data.rauto){
+                                    MyAlert(response.message);
 
-                                setVentaPagos({opc:6,folio:FolioVenta});
+                                }else{
+                                    var FolioVenta = $("#folio_venta").val();
+
+                                    setVentaPagos({opc:6,folio:FolioVenta});
+                                }
 
                             }else{
                                 MyAlert(response.message,"error");

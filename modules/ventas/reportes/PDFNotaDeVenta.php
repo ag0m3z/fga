@@ -44,6 +44,7 @@ on a.iddepartamento = g.iddepartamento
 where b.idventa = $FolioVenta";
 $connect->get_result_query();
 $ListaVenta = $connect->_rows;
+
 $connect->_query = "
 SELECT
 	a.idmovimiento,
@@ -55,7 +56,7 @@ SELECT
 	a.idestatus,
     a.FechaMovimiento
 FROM movimientos_caja as a 
-where a.idventa = $FolioVenta";
+where a.idventa = $FolioVenta AND a.TipoOperacion <= 3";
 
 $connect->get_result_query();
 $ListaPagos = $connect->_rows;

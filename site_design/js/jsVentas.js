@@ -79,7 +79,7 @@ function getCorteDiario(opc,Departamento) {
                 console.log(response);
                 if(response.result){
 
-                    var CajaInicial = 1500,SubTotal = 0, Total = 0;
+                    var CajaInicial = 0,SubTotal = 0, Total = 0;
 
                     $("#nnotasventa").text(response.data.Movimientos.Notas);
                     $("#npagos").text(response.data.Movimientos.Pagos);

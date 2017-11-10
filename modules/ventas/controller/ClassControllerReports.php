@@ -45,8 +45,8 @@ class ClassControllerReports extends \core\seguridad {
 
             $this->_query = "
                     SELECT 
-                        a.idmovimiento,a.tipo_venta,a.idventa,a.NoPago,a.idusuario,a.idestatus,
-                        a.importe_venta,sum(importe_pagado) as ImportePagado,a.importe_recibido,a.tipo_pago,a.pago_efectivo,a.pago_voucher,b.idcliente,c.nombre_completo,d.nombre_departamento
+                        a.idmovimiento,a.TipoVenta,a.idventa,a.NoPago,a.idusuario_regitra,a.idestatus,
+                        a.Importe,sum(a.TotalPagado) as ImportePagado,a.TotalRecibido,a.TipoOperacion,a.PagoEfectivo,a.Pago,b.idcliente,c.nombre_completo,d.nombre_departamento,b.iddepartamento
                     FROM movimientos_caja as a 
                     JOIN venta as b 
                     ON a.idventa = b.idventa 
@@ -55,7 +55,7 @@ class ClassControllerReports extends \core\seguridad {
                     JOIN departamentos as d 
                     ON b.iddepartamento = d.iddepartamento 
                     WHERE
-                        date(a.fecha_movimiento) = date(now()) AND b.iddepartamento = '$data_array[iddepartamento]'
+                        date(a.FechaMovimiento) = date(now()) AND b.iddepartamento = '$data_array[iddepartamento]'
                     group by a.idventa
                     ";
 

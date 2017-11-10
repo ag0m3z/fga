@@ -35,7 +35,7 @@ $DetalleART = $connect->_rows;
 
 //Numeros de pagos
 $connect->_query = "
-SELECT idmovimiento,NoPago,Importe,TotalPagado,FechaMovimiento,idestatus FROM movimientos_caja WHERE idventa = $FolioVenta ORDER BY NoPago DESC
+SELECT idmovimiento,NoPago,Importe,TotalPagado,FechaMovimiento,idestatus FROM movimientos_caja WHERE idventa = $FolioVenta AND TipoOperacion <= 3 ORDER BY NoPago DESC
 ";
 $connect->get_result_query();
 $DetallePagos = $connect->_rows;
@@ -77,7 +77,7 @@ $a=1;
         <tbody>
         <tr>
             <td colspan="3" class="text-right text-bold">Total: </td>
-            <td colspan="3" class="text-right text-bold currency"><?=$PrecioSubtotal?></td>
+            <td colspan="3" class="text-right text-bold currency"><?=$DetallePagos[0][2]?></td>
         </tr>
         </tbody>
     </table>

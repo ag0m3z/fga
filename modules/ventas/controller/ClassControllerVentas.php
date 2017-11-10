@@ -19,7 +19,7 @@ class ClassControllerVentas extends \core\seguridad
 
             $this->_query = "
             SELECT idmovimiento,TipoVenta,idventa,NoPago,Importe,TotalPagado,TotalRecibido,TipoPago,PagoEfectivo,Pago,idestatus,FechaMovimiento,idestatus
-            FROM movimientos_caja WHERE idventa = $idFolio ORDER BY NoPago DESC;
+            FROM movimientos_caja WHERE idventa = $idFolio AND TipoOperacion <=3 ORDER BY NoPago DESC;
             ";
 
             $this->get_result_query();

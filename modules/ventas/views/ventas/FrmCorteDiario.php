@@ -47,15 +47,15 @@ include "../../../../core/seguridad.class.php";
                                 <td id="caja_inicial" class="currency">0</td>
                             </tr>
                             <tr>
-                                <td>Notas</td>
+                                <td>Notas <span class="pull-right text-bold text-black">+</span></td>
                                 <td id="nnotasventa" class="currency">0</td>
                             </tr>
                             <tr>
-                                <td>Pagos</td>
+                                <td>Pagos <span class="pull-right text-bold text-black">+</span></td>
                                 <td id="npagos" class="currency">0</td>
                             </tr>
                             <tr>
-                                <td>Cancelaciones</td>
+                                <td>Cancelaciones <span class="pull-right text-bold text-red">-</span></td>
                                 <td id="ncancelaciones" class="currency">0</td>
                             </tr>
                             <tr>
@@ -66,15 +66,15 @@ include "../../../../core/seguridad.class.php";
                                 <td colspan="2" class="bg-blue-active text-bold">Aportaciones y Retiros</td>
                             </tr>
                             <tr>
-                                <td>Aportaciones <span class="pull-right text-red">+</span></td>
+                                <td>Aportaciones <span class="pull-right text-bold text-black">+</span></td>
                                 <td id="aportacion" class="currency">0</td>
                             </tr>
                             <tr>
-                                <td>Retiros <span class="pull-right text-red">-</span></td>
+                                <td>Retiros <span class="pull-right text-bold text-red">-</span></td>
                                 <td id="retiro" class="currency">0</td>
                             </tr>
                             <tr>
-                                <td>Cancelaciones <span class="pull-right text-red">-</span></td>
+                                <td>Cancelaciones <span class="pull-right text-bold text-red">-</span></td>
                                 <td id="cancelacion_aportaciones" class="currency">0</td>
                             </tr>
                             <tr>
@@ -85,15 +85,15 @@ include "../../../../core/seguridad.class.php";
                                 <td colspan="2" class="bg-blue-active text-bold">Entradas y Salidas</td>
                             </tr>
                             <tr>
-                                <td>Entradas <span class="pull-right text-red">+</span></td>
+                                <td>Entradas <span class="pull-right text-bold text-black">+</span></td>
                                 <td id="entrada" class="currency">0</td>
                             </tr>
                             <tr>
-                                <td>Salidas <span class="pull-right text-red">-</span></td>
+                                <td>Salidas <span class="pull-right text-bold text-red">-</span></td>
                                 <td id="salida" class="currency">0</td>
                             </tr>
                             <tr>
-                                <td>Cancelaciones <span class="pull-right text-red">-</span></td>
+                                <td>Cancelaciones <span class="pull-right text-bold text-red">-</span></td>
                                 <td id="cancelacion_entrada" class="currency">0</td>
                             </tr>
                             <tr>
